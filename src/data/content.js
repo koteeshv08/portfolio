@@ -5,12 +5,12 @@ export const profile = {
   title: "BI Developer",
   tagline: "Power BI · Microsoft Fabric · Data Analytics",
   location: "Dublin, Ireland",
-  workAuth: "Irish Stamp 1G — No Sponsorship Required",
+  workAuth: "Irish Stamp 1G — No Sponsorship Required (for Ireland)",
   email: "koteesh85@gmail.com",
   linkedin: "https://www.linkedin.com/in/koteesh",
   github: "https://github.com/koteeshv08",
   resumeUrl: "/Koteesh_Vijayasekar_Resume.pdf",
-  openTo: "Open to Cork, Dublin, continental Europe, and remote-first roles",
+  openTo: "Open to Dublin, Cork, Galway, continental Europe, and remote-first roles",
   summary:
     "Results-driven BI Developer with 2.5+ years of enterprise experience designing and delivering end-to-end Power BI solutions at scale. Proven track record serving 10,000+ global users at Software AG, reducing manual reporting effort by ~75% and cutting dashboard outages by ~40%. Hands-on expertise across Microsoft Fabric (Lakehouse, OneLake, Spark Notebooks, Direct Lake, Deployment Pipelines), advanced DAX, Row-Level Security, and Azure Data Factory. MSc research produced a novel Causal-QMIX framework applying causal inference (CATE) to multi-agent reinforcement learning, demonstrating depth in Python, PyTorch, and statistical modelling beyond typical BI profiles. Holds PL-300 (Power BI Data Analyst Associate) certification.",
 };
@@ -139,7 +139,7 @@ export const education = [
       "Key modules: Machine Learning, Big Data Analytics, Statistical Inference, Data Visualisation, Cloud Computing. Dissertation: Causal Influence–Guided Multi-Agent RL in StarCraft II — CATE-based prioritised replay integrated into QMIX framework (PyTorch).",
   },
   {
-    degree: "BEng in Computer Science",
+    degree: "B.E. in Computer Science",
     institution: "MS Ramaiah Institute of Technology, India",
     period: "2018 – 2022",
     grade: "Grade: First Class",
@@ -167,5 +167,7 @@ export const certifications = [
 export const languages = [
   { name: "English", level: "Professional proficiency" },
   { name: "Telugu", level: "Native" },
+  { name: "Kannada", level: "Professional proficiency" },
+  { name: "Tamil", level: "Professional proficiency" },
   { name: "Hindi", level: "Professional proficiency" },
 ];
