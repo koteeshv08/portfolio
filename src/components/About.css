@@ -1,0 +1,83 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-grid .card {
+  padding: 28px;
+}
+
+.about-grid h3 {
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+.about-achievements ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-achievements li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.bullet-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.about-side p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.about-open-to {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+.about-lang-heading {
+  margin-top: 24px;
+}
+
+.about-langs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-langs li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-langs li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.lang-level {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
