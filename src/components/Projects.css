@@ -8,11 +8,6 @@
   padding: 28px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
 }
 
 .project-top {

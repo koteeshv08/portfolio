@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ScrollProgress from "./components/ScrollProgress";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <>
+      <ScrollProgress />
       <Header theme={theme} onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />
       <main>
         <Hero />

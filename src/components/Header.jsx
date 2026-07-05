@@ -15,12 +15,40 @@ const links = [
 export default function Header({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  useEffect(() => {
+    const allIds = ["top", ...links.map((link) => link.href.slice(1))];
+    const sections = allIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          setActiveId(entry.target.id === "top" ? "" : `#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -31,9 +59,16 @@ export default function Header({ theme, onToggleTheme }) {
           <span className="brand-name">{profile.shortName}</span>
         </a>
 
+        <div className={`nav-backdrop ${open ? "is-open" : ""}`} onClick={() => setOpen(false)} />
+
         <nav className={`nav ${open ? "nav-open" : ""}`}>
           {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            <a
+              key={link.href}
+              href={link.href}
+              className={activeId === link.href ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
               {link.label}
             </a>
           ))}

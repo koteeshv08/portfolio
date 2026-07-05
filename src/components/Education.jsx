@@ -1,19 +1,20 @@
 import { education, certifications } from "../data/content";
+import Reveal from "./Reveal";
 import "./Education.css";
 
 export default function Education() {
   return (
     <section id="education" className="section education">
       <div className="container">
-        <div className="section-head">
+        <Reveal className="section-head">
           <span className="eyebrow">Education &amp; Certifications</span>
           <h2 className="section-title">Academic background &amp; credentials</h2>
-        </div>
+        </Reveal>
 
         <div className="education-grid">
           <div className="education-list">
-            {education.map((e) => (
-              <div className="card education-card" key={e.degree}>
+            {education.map((e, i) => (
+              <Reveal className="card education-card" delay={i * 100} key={e.degree}>
                 <div className="education-head">
                   <h3>{e.degree}</h3>
                   <span className="education-period">{e.period}</span>
@@ -21,11 +22,11 @@ export default function Education() {
                 <p className="education-institution">{e.institution}</p>
                 <p className="education-grade">{e.grade}</p>
                 {e.detail && <p className="education-detail">{e.detail}</p>}
-              </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="card cert-card">
+          <Reveal className="card cert-card" delay={120}>
             <h3>Certifications</h3>
             <ul className="cert-list">
               {certifications.map((c) => (
@@ -40,7 +41,7 @@ export default function Education() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

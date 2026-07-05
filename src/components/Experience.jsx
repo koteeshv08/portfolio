@@ -1,20 +1,21 @@
 import { experience } from "../data/content";
+import Reveal from "./Reveal";
 import "./Experience.css";
 
 export default function Experience() {
   return (
     <section id="experience" className="section experience">
       <div className="container">
-        <div className="section-head">
+        <Reveal className="section-head">
           <span className="eyebrow">Experience</span>
           <h2 className="section-title">Where I've worked</h2>
-        </div>
+        </Reveal>
 
         <div className="timeline">
-          {experience.map((job) => (
+          {experience.map((job, i) => (
             <div className="timeline-item" key={job.company}>
               <div className="timeline-marker" />
-              <div className="card timeline-card">
+              <Reveal as="div" className="card timeline-card" delay={i * 100}>
                 <div className="timeline-head">
                   <div>
                     <h3>{job.role}</h3>
@@ -34,7 +35,7 @@ export default function Experience() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             </div>
           ))}
         </div>

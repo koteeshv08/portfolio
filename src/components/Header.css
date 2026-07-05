@@ -13,6 +13,7 @@
 }
 
 .header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,14 +52,41 @@
 }
 
 .nav a {
+  position: relative;
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-muted);
   transition: color 0.15s ease;
 }
 
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
 .nav a:hover {
   color: var(--accent);
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav a.active {
+  color: var(--accent);
+}
+
+.nav a.active::after {
+  transform: scaleX(1);
 }
 
 .nav-actions-mobile {
@@ -94,34 +122,65 @@
   display: none;
 }
 
+.nav-backdrop {
+  display: none;
+}
+
 @media (max-width: 860px) {
   .nav {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 32px 24px;
-    gap: 24px;
-    transform: translateX(100%);
-    transition: transform 0.25s ease;
+    position: absolute;
+    z-index: 41;
+    top: calc(100% + 8px);
+    right: 16px;
+    left: auto;
+    width: 240px;
+    max-height: calc(100vh - 96px);
     overflow-y: auto;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 10px;
+    transform-origin: top right;
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
 
   .nav a {
-    font-size: 1.15rem;
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  .nav a::after {
+    display: none;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    background: var(--bg-inset);
   }
 
   .nav-open {
-    transform: translateX(0);
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 
   .nav-actions-mobile {
     display: block;
-    margin-top: 12px;
+    margin-top: 8px;
+    padding: 0 4px;
+  }
+
+  .nav-actions-mobile .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .header-resume {
@@ -130,5 +189,13 @@
 
   .nav-burger {
     display: inline-flex;
+  }
+
+  .nav-backdrop.is-open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: transparent;
   }
 }

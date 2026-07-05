@@ -1,22 +1,23 @@
 import { projects } from "../data/content";
 import { GitHubIcon, ArrowUpRightIcon } from "./Icons";
+import Reveal from "./Reveal";
 import "./Projects.css";
 
 export default function Projects() {
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <div className="section-head">
+        <Reveal className="section-head">
           <span className="eyebrow">Projects</span>
           <h2 className="section-title">Featured work</h2>
           <p className="section-sub">
             A mix of enterprise-grade data engineering and independent research that goes beyond typical BI tooling.
           </p>
-        </div>
+        </Reveal>
 
         <div className="projects-grid">
-          {projects.map((p) => (
-            <article className="card project-card" key={p.name}>
+          {projects.map((p, i) => (
+            <Reveal as="article" className="card project-card" delay={i * 100} key={p.name}>
               <div className="project-top">
                 <div>
                   <h3>{p.name}</h3>
@@ -50,7 +51,7 @@ export default function Projects() {
                   <GitHubIcon /> View repo <ArrowUpRightIcon />
                 </a>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

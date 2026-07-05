@@ -1,12 +1,13 @@
 import { profile } from "../data/content";
 import { MailIcon, LinkedInIcon, GitHubIcon, MapPinIcon, DownloadIcon } from "./Icons";
+import Reveal from "./Reveal";
 import "./Contact.css";
 
 export default function Contact() {
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <div className="card contact-card">
+        <Reveal className="card contact-card">
           <div className="contact-copy">
             <span className="eyebrow">Contact</span>
             <h2 className="section-title">Let's work together</h2>
@@ -37,7 +38,7 @@ export default function Contact() {
           <a className="btn btn-primary contact-resume" href={profile.resumeUrl} download>
             <DownloadIcon /> Download Resume
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

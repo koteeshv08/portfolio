@@ -1,18 +1,19 @@
 import { profile, achievements, languages } from "../data/content";
+import Reveal from "./Reveal";
 import "./About.css";
 
 export default function About() {
   return (
     <section id="about" className="section about">
       <div className="container">
-        <div className="section-head">
+        <Reveal className="section-head">
           <span className="eyebrow">About</span>
           <h2 className="section-title">Turning messy data into decisions people trust</h2>
           <p className="section-sub">{profile.summary}</p>
-        </div>
+        </Reveal>
 
         <div className="about-grid">
-          <div className="card about-achievements">
+          <Reveal className="card about-achievements" delay={80}>
             <h3>Key achievements</h3>
             <ul>
               {achievements.map((a) => (
@@ -22,9 +23,9 @@ export default function About() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="card about-side">
+          <Reveal className="card about-side" delay={160}>
             <h3>Work authorisation</h3>
             <p>{profile.workAuth}</p>
             <p className="about-open-to">{profile.openTo}</p>
@@ -38,7 +39,7 @@ export default function About() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
