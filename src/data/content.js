@@ -95,6 +95,7 @@ export const skills = [
       "Deployment Pipelines (Dev/Test/Prod CI/CD)",
       "Dataflows Gen2 & Power Query (M)",
       "Power Automate & Power Apps (Canvas)",
+      "React",
     ],
   },
   {
