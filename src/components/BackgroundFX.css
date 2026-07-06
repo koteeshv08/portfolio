@@ -1,0 +1,142 @@
+.bgfx {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bgfx-parallax,
+.bgfx-shape-wrap {
+  position: absolute;
+  will-change: transform;
+}
+
+.bgfx-shape {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  opacity: 0.05;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+:root[data-theme="dark"] .bgfx-shape {
+  opacity: 0.08;
+}
+
+.bgfx-morphA {
+  animation-name: morphA;
+}
+
+.bgfx-morphB {
+  animation-name: morphB;
+}
+
+.bgfx-morphC {
+  animation-name: morphC;
+}
+
+@keyframes morphA {
+  0% {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    transform: rotate(0deg);
+  }
+  33% {
+    clip-path: polygon(30% 5%, 90% 15%, 100% 75%, 55% 100%, 5% 65%);
+    transform: rotate(40deg);
+  }
+  66% {
+    clip-path: polygon(60% 0%, 100% 55%, 75% 100%, 25% 95%, 0% 45%);
+    transform: rotate(-30deg);
+  }
+  100% {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes morphB {
+  0% {
+    clip-path: polygon(20% 0%, 80% 10%, 100% 60%, 70% 100%, 10% 90%, 0% 40%);
+    transform: rotate(0deg) scale(1);
+  }
+  40% {
+    clip-path: polygon(40% 5%, 95% 30%, 85% 90%, 40% 100%, 0% 70%, 5% 20%);
+    transform: rotate(-35deg) scale(1.06);
+  }
+  70% {
+    clip-path: polygon(10% 15%, 70% 0%, 100% 50%, 90% 95%, 30% 100%, 0% 55%);
+    transform: rotate(20deg) scale(0.96);
+  }
+  100% {
+    clip-path: polygon(20% 0%, 80% 10%, 100% 60%, 70% 100%, 10% 90%, 0% 40%);
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes morphC {
+  0% {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(0deg);
+  }
+  50% {
+    clip-path: polygon(50% 15%, 85% 85%, 15% 85%);
+    transform: rotate(180deg);
+  }
+  100% {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bgfx-shape {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .bgfx-shape {
+    opacity: 0.035;
+  }
+}
+
+.bgfx-float {
+  display: block;
+  color: var(--accent);
+  opacity: 0.06;
+  animation-name: bgfxFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+:root[data-theme="dark"] .bgfx-float {
+  opacity: 0.09;
+}
+
+@keyframes bgfxFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(6px, -10px) rotate(4deg);
+  }
+  50% {
+    transform: translate(-5px, 6px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(8px, 4px) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bgfx-float {
+    animation: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .bgfx-float {
+    opacity: 0.045;
+  }
+}

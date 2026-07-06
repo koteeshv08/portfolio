@@ -16,10 +16,10 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "2.5+", label: "Years of BI experience" },
-  { value: "10,000+", label: "Users served across 70+ countries" },
-  { value: "20+", label: "Enterprise Power BI dashboards shipped" },
-  { value: "~75%", label: "Manual reporting effort eliminated" },
+  { value: "2.5+", label: "Years of BI experience", progress: 65 },
+  { value: "10,000+", label: "Users served across 70+ countries", progress: 100 },
+  { value: "20+", label: "Enterprise Power BI dashboards shipped", progress: 90 },
+  { value: "~75%", label: "Manual reporting effort eliminated", progress: 75 },
 ];
 
 export const achievements = [
@@ -39,7 +39,7 @@ export const experience = [
     note: "Started as Intern (Aug 2022) → promoted to Assistant Consultant",
     bullets: [
       "Architected and deployed 20+ enterprise Power BI dashboards supporting global finance, operations, and HR functions for 10,000+ users across 70+ countries.",
-      "Engineered advanced DAX measures, calculated tables, and time-intelligence formulas to deliver self-service analytics with Row-Level Security (RLS) for role-based data access control.",
+      "Engineered advanced DAX measures, calculated tables, and time intelligence formulas to deliver self-service analytics with Row-Level Security (RLS) for role-based data access control.",
       "Built and maintained ADF pipelines ingesting data from SQL Server, SharePoint, and REST APIs into Azure Data Lake Gen2, significantly reducing ETL processing time.",
       "Migrated legacy reports to Microsoft Fabric: implemented Lakehouse (OneLake), Spark Notebooks (PySpark), Dataflows Gen2, and Direct Lake mode to reduce dataset refresh latency.",
       "Developed Power BI Embedded solutions integrated into internal portals, enabling non-technical stakeholders to access governed analytics without a Power BI licence.",
@@ -74,7 +74,7 @@ export const projects = [
       "An end-to-end data engineering solution implementing the Medallion Architecture (Bronze → Silver → Gold) for retail analytics on Microsoft Fabric, from raw ingestion to Direct Lake reporting.",
     bullets: [
       "Delta format across all layers for ACID transactions and temporal data access.",
-      "Star schema design — one fact table (fact_sales) joined to dim_customer, dim_product, and dim_date.",
+      "Star schema design:  one fact table (fact_sales) joined to dim_customer, dim_product, and dim_date.",
       "Silver layer partitioned by Country for optimized query pruning; daily orchestration via Fabric triggers.",
       "Direct Lake mode Power BI dashboards for near real-time reporting.",
     ],
@@ -102,7 +102,7 @@ export const skills = [
     items: [
       "Microsoft Fabric: Lakehouse, OneLake, Direct Lake",
       "Fabric Spark Notebooks (PySpark)",
-      "Azure Data Factory (ADF) — Pipelines & Triggers",
+      "Azure Data Factory (ADF): Pipelines & Triggers",
       "Azure Data Lake Gen2 (ADLS Gen2)",
       "Medallion Architecture (Bronze/Silver/Gold)",
     ],
@@ -136,7 +136,7 @@ export const education = [
     period: "2024 – 2025",
     grade: "Grade: 2.1 (Upper Second Class Honours)",
     detail:
-      "Key modules: Machine Learning, Big Data Analytics, Statistical Inference, Data Visualisation, Cloud Computing. Dissertation: Causal Influence–Guided Multi-Agent RL in StarCraft II — CATE-based prioritised replay integrated into QMIX framework (PyTorch).",
+      "Key modules: Machine Learning, Big Data Analytics, Statistical Inference, Data Visualisation, Cloud Computing. Dissertation: Causal Influence Guided Multi-Agent RL in StarCraft II — CATE-based prioritised replay integrated into QMIX framework (PyTorch).",
   },
   {
     degree: "B.E. in Computer Science",

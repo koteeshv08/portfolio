@@ -209,14 +209,25 @@ img {
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translateY(32px) scale(0.98);
+}
+
+.reveal-left {
+  transform: translateX(-64px) scale(0.98);
+}
+
+.reveal-right {
+  transform: translateX(64px) scale(0.98);
 }
 
 .reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {

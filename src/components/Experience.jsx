@@ -6,7 +6,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section experience">
       <div className="container">
-        <Reveal className="section-head">
+        <Reveal className="section-head" direction="right">
           <span className="eyebrow">Experience</span>
           <h2 className="section-title">Where I've worked</h2>
         </Reveal>

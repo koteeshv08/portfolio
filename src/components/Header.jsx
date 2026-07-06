@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { profile } from "../data/content";
 import { DownloadIcon, MenuIcon, CloseIcon, SunIcon, MoonIcon } from "./Icons";
 import "./Header.css";
@@ -16,6 +16,10 @@ export default function Header({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState("");
+  const [hoveredHref, setHoveredHref] = useState(null);
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
+  const navRef = useRef(null);
+  const linkRefs = useRef({});
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -51,6 +55,25 @@ export default function Header({ theme, onToggleTheme }) {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const updateIndicator = () => {
+      const targetHref = hoveredHref || activeId;
+      const el = targetHref && linkRefs.current[targetHref];
+      const nav = navRef.current;
+      if (el && nav) {
+        const elRect = el.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
+        setIndicator({ left: elRect.left - navRect.left, width: elRect.width, opacity: 1 });
+      } else {
+        setIndicator((s) => ({ ...s, opacity: 0 }));
+      }
+    };
+
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [activeId, hoveredHref, open]);
+
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="container header-inner">
@@ -61,12 +84,26 @@ export default function Header({ theme, onToggleTheme }) {
 
         <div className={`nav-backdrop ${open ? "is-open" : ""}`} onClick={() => setOpen(false)} />
 
-        <nav className={`nav ${open ? "nav-open" : ""}`}>
+        <nav
+          ref={navRef}
+          className={`nav ${open ? "nav-open" : ""}`}
+          onMouseLeave={() => setHoveredHref(null)}
+        >
+          <span
+            className="nav-indicator"
+            style={{
+              transform: `translateX(${indicator.left}px)`,
+              width: indicator.width,
+              opacity: indicator.opacity,
+            }}
+          />
           {links.map((link) => (
             <a
               key={link.href}
+              ref={(el) => (linkRefs.current[link.href] = el)}
               href={link.href}
               className={activeId === link.href ? "active" : ""}
+              onMouseEnter={() => setHoveredHref(link.href)}
               onClick={() => setOpen(false)}
             >
               {link.label}

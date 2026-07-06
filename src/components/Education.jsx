@@ -6,7 +6,7 @@ export default function Education() {
   return (
     <section id="education" className="section education">
       <div className="container">
-        <Reveal className="section-head">
+        <Reveal className="section-head" direction="left">
           <span className="eyebrow">Education &amp; Certifications</span>
           <h2 className="section-title">Academic background &amp; credentials</h2>
         </Reveal>

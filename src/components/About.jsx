@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section id="about" className="section about">
       <div className="container">
-        <Reveal className="section-head">
+        <Reveal className="section-head" direction="left">
           <span className="eyebrow">About</span>
           <h2 className="section-title">Turning messy data into decisions people trust</h2>
           <p className="section-sub">{profile.summary}</p>

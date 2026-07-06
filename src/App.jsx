@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BackgroundFX from "./components/BackgroundFX";
 import ScrollProgress from "./components/ScrollProgress";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <>
+      <BackgroundFX />
       <ScrollProgress />
       <Header theme={theme} onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))} />
       <main>

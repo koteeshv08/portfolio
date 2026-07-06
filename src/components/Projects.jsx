@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <Reveal className="section-head">
+        <Reveal className="section-head" direction="left">
           <span className="eyebrow">Projects</span>
           <h2 className="section-title">Featured work</h2>
           <p className="section-sub">

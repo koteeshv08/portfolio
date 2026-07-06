@@ -6,7 +6,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section skills">
       <div className="container">
-        <Reveal className="section-head">
+        <Reveal className="section-head" direction="right">
           <span className="eyebrow">Skills</span>
           <h2 className="section-title">Tools &amp; technologies</h2>
         </Reveal>

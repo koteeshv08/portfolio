@@ -7,28 +7,74 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  padding: 40px 24px;
+  padding: 48px 24px;
 }
 
 .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
+.stat-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+.stat-ring svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.stat-ring-track {
+  fill: none;
+  stroke: var(--border);
+}
+
+.stat-ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .stat-value {
+  position: relative;
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
   font-weight: 800;
   color: var(--accent);
+  white-space: nowrap;
 }
 
 .stat-label {
-  margin-top: 6px;
+  margin-top: 2px;
   font-size: 0.85rem;
   color: var(--text-muted);
+  max-width: 160px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-ring-fill {
+    transition: none;
+  }
 }
 
 @media (max-width: 720px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 380px) {
+  .stat-ring {
+    width: 96px !important;
+    height: 96px !important;
   }
 }
